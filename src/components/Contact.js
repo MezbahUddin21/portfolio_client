@@ -70,7 +70,7 @@ function Contact(){
                     { label: "LinkedIn", val: "linkedin.com/in/mum_m00z", href: "https://linkedin.com/in/mum_m00z" },
                     { label: "Codeforces", val: "codeforces.com/profile/mumm00z", href: "https://codeforces.com/profile/mumm00z" },
                     ].map(item => (
-                    <a key={item.label} target="_blank" href={item.href} className="contact-link group">
+                    <a key={item.label} target="_blank" rel="noreferrer" href={item.href} className="contact-link group">
                         <span className="text-xs text-slate-600 w-20 shrink-0">{item.label}</span>
                         <span className="contact-val text-sm text-slate-400 transition-colors">{item.val}</span>
                         <span className="contact-arrow text-slate-700 ml-auto transition-colors"><ArrowIcon /></span>
