@@ -6,17 +6,6 @@ import axios from 'axios';
 
 
 
-const ROLES = ["Software Engineer", "Competitive Programmer", "Full-Stack Developer"];
-const ACHIEVEMENTS = [
-  "ICPC Asia Regional Contestant 2023",
-  "Google Kickstart Round D — Global Rank 142",
-  "Solved 1,800+ problems across all platforms",
-  "Codeforces Div. 1 Participant",
-  "Meta Hacker Cup 2023 — Round 2 Qualifier",
-];
-
-
-
 const ArrowIcon = () => (
   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
     <line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/>

@@ -1,5 +1,4 @@
 import React, { useState, useEffect} from 'react';
-import { Link, useLocation } from 'react-router-dom';
 
 const NAV_LINKS = ["about", "cp", "projects", "skills", "contact"];
 
@@ -8,10 +7,6 @@ function Header() {
 
   const [activeSection, setActiveSection] = useState("about");
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [roleIdx, setRoleIdx] = useState(0);
-  const [isDeleting, setIsDeleting] = useState(false);
-  const [charIdx, setCharIdx] = useState(0);
-  const [typedText, setTypedText] = useState("");
 
 
   useEffect(() => {
