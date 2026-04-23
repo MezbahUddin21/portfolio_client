@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import axios from 'axios';
+import axiosInstance from '../axiosConfig';
 
 function CpSection() {
   const [cpStats, setCpStats] = useState([]);
@@ -10,8 +10,8 @@ function CpSection() {
     const fetchData = async () => {
       try {
         const [progRes, highlightsRes] = await Promise.all([
-          axios.get('/api/programming'),
-          axios.get('/api/highlights'),
+          axiosInstance.get('/api/programming'),
+          axiosInstance.get('/api/highlights'),
         ]);
 
         setCpStats(progRes.data?.stats || []);

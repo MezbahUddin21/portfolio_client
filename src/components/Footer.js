@@ -1,12 +1,12 @@
 import React from 'react';
-import axios from 'axios';
+import axiosInstance from '../axiosConfig';
 
 function Footer() {
 
   const downloadCV = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.get('/api/cv/download', { responseType: 'blob' });
+      const response = await axiosInstance.get('/api/cv/download', { responseType: 'blob' });
       const url = window.URL.createObjectURL(new Blob([response.data], { type: 'application/pdf' }));
       const link = document.createElement('a');
       link.href = url;

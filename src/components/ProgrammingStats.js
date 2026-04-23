@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import axiosInstance from '../axiosConfig';
 
 function ProgrammingStats() {
   const [programmingStats, setProgrammingStats] = useState([]);
@@ -8,7 +8,7 @@ function ProgrammingStats() {
   useEffect(() => {
     const fetchStats = async () => {
       try {
-        const res = await axios.get('/api/programming');
+        const res = await axiosInstance.get('/api/programming');
         setProgrammingStats(res.data.stats || []);
         setAchievements(res.data.achievements || []);
       } catch (err) {

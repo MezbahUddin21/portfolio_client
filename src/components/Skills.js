@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import axiosInstance from '../axiosConfig';
 
 
 
@@ -11,7 +11,7 @@ function Skills() {
   useEffect(() => {
     const fetchSkills = async () => {
       try {
-        const response = await axios.get('/api/skills');
+        const response = await axiosInstance.get('/api/skills');
         const skillsObj = {};
         response.data.forEach(skill => {
           skillsObj[skill.category] = skill.skills;

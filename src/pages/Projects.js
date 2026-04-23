@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import axiosInstance from '../axiosConfig';
 
 function Projects() {
   const [projects, setProjects] = useState([]);
@@ -12,7 +12,7 @@ function Projects() {
   useEffect(() => {
     const fetchProjects = async () => {
       try {
-        const response = await axios.get('/api/projects');
+        const response = await axiosInstance.get('/api/projects');
         setProjects(response.data);
         
         // Extract unique technologies

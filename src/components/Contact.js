@@ -1,5 +1,5 @@
 import { useState } from "react";
-import axios from "axios";
+import axiosInstance from "../axiosConfig";
 
 const ArrowIcon = () => (
   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -30,7 +30,7 @@ function Contact(){
     setStatus({ loading: true, success: false, error: "" });
 
     try {
-      await axios.post('/api/contact/send', formData);
+      await axiosInstance.post('/api/contact/send', formData);
       setFormData({ name: "", email: "", subject: "", message: "" });
       setStatus({ loading: false, success: true, error: "" });
       setTimeout(() => setStatus((prev) => ({ ...prev, success: false })), 4000);

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import axios from 'axios';
+import axiosInstance from '../axiosConfig';
 
 function Contact() {
   const [formData, setFormData] = useState({
@@ -45,7 +45,7 @@ function Contact() {
     setError('');
 
     try {
-      await axios.post('/api/contact/send', formData);
+      await axiosInstance.post('/api/contact/send', formData);
       setSubmitted(true);
       setFormData({ name: '', email: '', subject: '', message: '' });
       setTimeout(() => setSubmitted(false), 4000);
