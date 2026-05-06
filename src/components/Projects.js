@@ -83,7 +83,11 @@ function Projects() {
 
   if (loading) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-dark">
+
+
+      <section id="projects" className="pt-15 pb-24">
+
+      {/* <div className="min-h-screen flex items-center justify-center bg-dark">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full max-w-6xl px-8">
           {[...Array(3)].map((_, i) => (
             <div
@@ -92,15 +96,28 @@ function Projects() {
             ></div>
           ))}
         </div>
-      </div>
+      </div> */}
+
+        <div className="max-w-6xl mx-auto px-6">
+         
+          <div className="grid md:grid-cols-2 gap-5">
+            {[...Array(3)].map((_, i) => (
+              <div key={i} className=" h-64 card-hover rounded-xl border border-white/6 p-6 relative overflow-hidden" style={{ background: "rgba(255,255,255,0.02)" }}>
+                
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
     );
+
+
   }
 
 
 
   return (
     <>
-        {/* PROJECTS */}
 
       {/* Filters Section */}
       
@@ -146,6 +163,7 @@ function Projects() {
         </div>
       </section>
 
+        {/* PROJECTS */}
 
       <section id="projects" className="pt-15 pb-24">
         <div className="max-w-6xl mx-auto px-6">
