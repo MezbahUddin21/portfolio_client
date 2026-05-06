@@ -47,6 +47,11 @@ function Projects() {
             });
             setAllTechnologies(Array.from(techSet).sort());
             setFilteredProjects(response.data);
+
+            // setTimeout(()=>{
+            //   console.log(22);
+            // }, 50000);
+
         } catch (error) {
             console.error('Error fetching projects:', error);
         } finally {
@@ -83,7 +88,48 @@ function Projects() {
 
   if (loading) {
     return (
+    <>
+      <section className="text-sm py-24 border-t border-white/5" >
+      
+        <div className="max-w-6xl mx-auto px-6">
 
+           <div className="mb-14">
+            <div className="section-line mb-4"/>
+            <h2 className="font-syne text-3xl font-700 text-white mb-2">Projects</h2>
+            <p className="text-slate-400 text-sm">Selected web applications and developer tools</p>
+          </div>
+          {/* Search Bar */}
+          <div className="relative">
+            <input
+              type="text"
+              placeholder="Search projects by name or description..."
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              className="w-full pl-10 pr-4 py-3 border border-white/5 rounded focus:border-secondary focus:ring-0 bg-dark text-white placeholder-primary placeholder-opacity-50"
+            />
+            <span className="absolute left-3 top-1/2 -translate-y-1/2 text-primary">🔍︎</span>
+          </div>
+
+          {/* Technology Filter */}
+          <div className="flex flex-wrap gap-3 justify-center mt-10">
+            <button
+              className={`filter-pill rounded p-2 ${selectedTech === 'all' ? 'filter-pill-active' : ''}`}
+              onClick={() => setSelectedTech('all')}
+            >
+              All Projects ({0})
+            </button>
+            {[...Array(8)].map((_,i) => (
+              <button
+                key={i}
+                className={`filter-pill p-2 rounded ${selectedTech === i ? 'filter-pill-active' : ''}`}
+                onClick={() => setSelectedTech('...')}
+              >
+                {'....'} ({projects.filter((p) => p.technologies?.includes(i)).length})
+              </button>
+            ))}
+          </div>
+        </div>
+      </section>
 
       <section id="projects" className="pt-15 pb-24">
 
@@ -102,13 +148,14 @@ function Projects() {
          
           <div className="grid md:grid-cols-2 gap-5">
             {[...Array(3)].map((_, i) => (
-              <div key={i} className=" h-64 card-hover rounded-xl border border-white/6 p-6 relative overflow-hidden" style={{ background: "rgba(255,255,255,0.02)" }}>
+              <div key={i} className=" h-40 card-hover rounded-xl border border-white/6 p-6 relative overflow-hidden" style={{ background: "rgba(255,255,255,0.02)" }}>
                 
               </div>
             ))}
           </div>
         </div>
       </section>
+    </>
     );
 
 
