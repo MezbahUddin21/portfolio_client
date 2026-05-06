@@ -121,10 +121,10 @@ function Projects() {
             {[...Array(8)].map((_,i) => (
               <button
                 key={i}
-                className={`filter-pill p-2 rounded ${selectedTech === i ? 'filter-pill-active' : ''}`}
-                onClick={() => setSelectedTech('...')}
+                className={`filter-pill p-2 rounded w-20 ${selectedTech === i ? 'filter-pill-active' : ''}`}
+                
               >
-                {'....'} ({projects.filter((p) => p.technologies?.includes(i)).length})
+                
               </button>
             ))}
           </div>
